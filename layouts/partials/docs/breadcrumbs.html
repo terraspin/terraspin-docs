@@ -1,0 +1,12 @@
+<nav class="docs-breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a>
+  {{ $ancestors := .Ancestors.Reverse }}
+  {{ range $ancestors }}
+    {{ if ne .RelPermalink "/" }}
+      <span class="crumb-sep">›</span>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
+  {{ end }}
+  <span class="crumb-sep">›</span>
+  <span>{{ .Title }}</span>
+</nav>

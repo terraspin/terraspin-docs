@@ -1,0 +1,47 @@
+<footer class="site-footer" data-od-id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="{{ .Site.Home.RelPermalink }}" class="brand">
+          <img src="/images/logo-200.png" alt="{{ .Site.Title }} logo" class="brand-logo" width="36" height="36">
+          <span>{{ .Site.Title }}</span>
+        </a>
+        <p style="margin-top:18px;">
+          {{ .Site.Title }} is an open-source infrastructure automation tool that helps teams spin up, manage, and scale cloud resources with confidence.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h5>Docs</h5>
+        <ul>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/docs/getting-started/">Getting Started</a></li>
+          <li><a href="{{ .Site.Params.githubRepo }}/tree/main/docs" target="_blank" rel="noreferrer noopener">Source Docs</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Project</h5>
+        <ul>
+          <li><a href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener">GitHub</a></li>
+          <li><a href="{{ .Site.Params.githubRepo }}/issues" target="_blank" rel="noreferrer noopener">Issues</a></li>
+          <li><a href="{{ .Site.Params.githubRepo }}/releases" target="_blank" rel="noreferrer noopener">Releases</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="{{ .Site.Params.githubRepo }}/blob/main/LICENSE" target="_blank" rel="noreferrer noopener">License</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span><span class="pulse"></span>● <b style="color:var(--ink);">{{ .Site.Title }}</b> · Open Source · {{ now.Format "2006" }}</span>
+      <span class="right">
+        <span>Made on Earth</span>
+        <span style="color:var(--brand);">♥ {{ now.Format "2006" }}</span>
+      </span>
+    </div>
+    <div class="foot-mega">
+      <div class="word" data-reveal="rise-lg">Spin <em>Faster</em>.</div>
+    </div>
+  </div>
+</footer>

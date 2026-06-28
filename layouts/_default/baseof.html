@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ block "description" . }}{{ .Site.Params.description }}{{ end }}">
+  {{ partial "head/seo.html" . }}
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  {{ $css := resources.Get "css/design.css" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ block "styles" . }}{{ end }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer.html" . }}
+  {{ partial "scroll-reveal.html" . }}
+  {{ partial "copy-code.html" . }}
+  {{ partial "theme-switch.html" . }}
+</body>
+</html>

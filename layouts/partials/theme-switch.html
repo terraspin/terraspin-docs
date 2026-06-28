@@ -1,0 +1,28 @@
+<script>
+  (function() {
+    var KEY = 'terraspin-theme';
+    var root = document.documentElement;
+
+    function getTheme() {
+      var stored = localStorage.getItem(KEY);
+      if (stored === 'dark' || stored === 'light') return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem(KEY, t);
+    }
+
+    var current = getTheme();
+    applyTheme(current);
+
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+  })();
+</script>

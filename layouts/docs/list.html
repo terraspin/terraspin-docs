@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="docs-layout">
+  {{ partial "docs/sidebar.html" . }}
+  <article class="docs-article" data-od-id="article">
+    {{ partial "docs/breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.description }}
+      <p class="lede">{{ .Params.description }}</p>
+    {{ end }}
+    <div class="section-listing">
+      {{ range .Pages.ByWeight }}
+        <a href="{{ .RelPermalink }}" class="section-card">
+          <h3>{{ .Title }}</h3>
+          {{ if .Params.description }}
+            <p>{{ .Params.description }}</p>
+          {{ end }}
+        </a>
+      {{ end }}
+    </div>
+  </article>
+  {{ partial "docs/toc.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,40 @@
+<!-- Top metadata strip -->
+<div class="topbar" data-od-id="topbar">
+  <div class="container topbar-inner">
+    <span><b>{{ .Site.Title }} / {{ now.Format "2006" }}</b></span>
+    <span class="mid">
+      <span>Filed under <b class="coral">Infrastructure · Automation</b></span>
+      <span>Open Source · MIT</span>
+    </span>
+    <span class="right">
+      <a class="topbar-link" href="{{ .Site.Params.githubRepo }}/releases" target="_blank" rel="noreferrer noopener">
+        <span class="pulse"></span>Docs
+      </a>
+      <span><b>EN</b></span>
+    </span>
+  </div>
+</div>
+
+<!-- Sticky nav -->
+<header class="nav" data-od-id="nav">
+  <div class="container nav-inner">
+    <a href="{{ .Site.Home.RelPermalink }}" class="brand">
+      <img src="/images/logo-200.png" alt="{{ .Site.Title }} logo" class="brand-logo" width="36" height="36">
+      <span>{{ .Site.Title }}</span>
+      <span class="brand-meta"><b>Open Source</b>Infrastructure Automation</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/docs/">Docs</a></li>
+        <li><a href="/search/">Search</a></li>
+        <li><a href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener">GitHub<span class="num">↗</span></a></li>
+      </ul>
+    </nav>
+    <div class="nav-side">
+      {{ partial "theme-toggle.html" . }}
+      <a class="nav-cta ghost" href="{{ .Site.Params.githubRepo }}/releases" target="_blank" rel="noreferrer noopener">Download</a>
+      <a class="nav-cta" href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener" data-stars>Star</a>
+      <span class="status-dot" aria-hidden="true"></span>
+    </div>
+  </div>
+</header>

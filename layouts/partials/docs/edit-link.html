@@ -1,0 +1,8 @@
+{{ $path := .File.Path }}
+{{ if $path }}
+<div class="edit-link">
+  <a href="{{ .Site.Params.githubRepo }}/tree/main/docs/{{ $path }}" target="_blank" rel="noreferrer noopener">
+    Edit this page on GitHub →
+  </a>
+</div>
+{{ end }}

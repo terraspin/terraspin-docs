@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="docs-layout">
+  {{ partial "docs/sidebar.html" . }}
+  <article class="docs-article" data-od-id="article">
+    {{ partial "docs/breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.description }}
+      <p class="lede">{{ .Params.description }}</p>
+    {{ end }}
+    {{ .Content }}
+    {{ partial "docs/edit-link.html" . }}
+    {{ partial "docs/pager.html" . }}
+  </article>
+  {{ partial "docs/toc.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,16 @@
+{{ if or .PrevInSection .NextInSection }}
+<nav class="docs-pager">
+  {{ with .PrevInSection }}
+  <a href="{{ .RelPermalink }}" class="pager-link pager-prev">
+    <small>← Previous</small>
+    <span>{{ .Title }}</span>
+  </a>
+  {{ end }}
+  {{ with .NextInSection }}
+  <a href="{{ .RelPermalink }}" class="pager-link pager-next">
+    <small>Next →</small>
+    <span>{{ .Title }}</span>
+  </a>
+  {{ end }}
+</nav>
+{{ end }}

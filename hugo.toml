@@ -1,0 +1,39 @@
+baseURL = 'https://terraspin.sh/'
+languageCode = 'en-us'
+title = 'Terraspin'
+enableRobotsTXT = true
+
+[params]
+  description = "Spin up infrastructure faster. Terraspin is the open-source infrastructure automation tool."
+  githubRepo = "https://github.com/terraspin/terraspin"
+  githubDocsPath = "https://github.com/terraspin/terraspin/tree/main/docs"
+
+[markup]
+  [markup.highlight]
+    style = 'github-dark'
+    lineNos = false
+    lineNumbersInTable = false
+    noClasses = false
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML']
+  page = ['HTML']
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5

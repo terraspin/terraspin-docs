@@ -1,0 +1,61 @@
+{{ define "main" }}
+<div class="docs-layout">
+  <div class="docs-sidebar" style="opacity:0.5"></div>
+  <article class="docs-article" data-od-id="article">
+    <h1>{{ .Title }}</h1>
+    <p class="lede">Search the Terraspin documentation.</p>
+    <input type="text" id="search-input" class="search-input" placeholder="Search docs..." autofocus>
+    <div id="search-results" class="search-results"></div>
+  </article>
+  <div class="docs-toc" style="opacity:0.5"></div>
+</div>
+
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var pages = [];
+
+  // Build search index from the DOM
+  document.querySelectorAll('body:not(.search-body)').forEach(function(body) {
+    // We're on the search page itself, so we build a manual index
+    // from known page paths
+  });
+
+  // Simple static index of known pages — extend this as docs grow
+  var index = [
+    {{ range where .Site.Pages "Section" "docs" }}
+      {{ if .Title }}
+        { title: {{ .Title | jsonify }}, url: {{ .RelPermalink | jsonify }}, desc: {{ .Params.description | default "" | jsonify }} },
+      {{ end }}
+    {{ end }}
+  ];
+
+  if (input) {
+    input.addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      results.innerHTML = '';
+      if (!q) return;
+
+      var matches = index.filter(function(p) {
+        return (p.title && p.title.toLowerCase().indexOf(q) > -1) ||
+               (p.desc && p.desc.toLowerCase().indexOf(q) > -1);
+      });
+
+      if (!matches.length) {
+        results.innerHTML = '<p class="search-empty">No results.</p>';
+        return;
+      }
+
+      var html = '';
+      matches.forEach(function(p) {
+        html += '<a href="' + p.url + '" class="search-item"><strong>' + p.title + '</strong>';
+        if (p.desc) html += '<span>' + p.desc + '</span>';
+        html += '</a>';
+      });
+      results.innerHTML = html;
+    });
+  }
+})();
+</script>
+{{ end }}

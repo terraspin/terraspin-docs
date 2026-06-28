@@ -1,0 +1,18 @@
+{{ $headerCount := 0 }}
+{{ range .Fragments.Headings }}
+  {{ $headerCount = add $headerCount (len .Headings) }}
+{{ end }}
+{{ if gt $headerCount 0 }}
+<aside class="docs-toc" data-od-id="toc">
+  <div class="toc-label">On this page</div>
+  <ul>
+  {{ range .Fragments.Headings }}
+    {{ range .Headings }}
+      <li class="toc-h{{ .Level }}">
+        <a href="#{{ .ID }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  {{ end }}
+  </ul>
+</aside>
+{{ end }}

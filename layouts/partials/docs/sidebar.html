@@ -1,0 +1,14 @@
+<nav class="docs-sidebar" data-od-id="sidebar">
+  {{ $currentPage := . }}
+  {{ $docs := .Site.GetPage "/docs" }}
+  {{ range $docs.Sections.ByWeight }}
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">{{ .Title }}</div>
+      {{ range .Pages.ByWeight }}
+        <a href="{{ .RelPermalink }}" class="{{ if eq $currentPage.RelPermalink .RelPermalink }}active{{ end }}">
+          {{ .Title }}
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
+</nav>
