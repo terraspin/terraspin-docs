@@ -330,6 +330,9 @@ section { position: relative; padding: 130px 0; }
 @media (max-width: 560px) {
   .container { padding: 0 16px; }
   section { padding: 60px 0; }
+  .hero-copy::before { right: -20%; width: 90%; opacity: 0.05; }
+  .hero-install { font-size: 11px; padding: 8px 10px 8px 14px; }
+  .hero-install code { overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
 }
 
 /* ========================================
@@ -617,18 +620,42 @@ section { position: relative; padding: 130px 0; }
 .hero > .container.hero-grid { flex: 1 1 auto; }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: 1fr;
   gap: 36px;
   align-items: stretch;
   width: 100%;
   position: relative;
+  max-width: 960px;
 }
 .hero-copy {
   padding: 4vh 0 4vh;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
+/* Logo as decorative background behind hero copy */
+.hero-copy::before {
+  content: '';
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55%;
+  height: 90%;
+  background: url('/images/logo.webp') no-repeat center/contain;
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  animation: spin 28s linear infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy::before { animation: none; }
+}
+/* Ensure hero copy children sit above the logo background */
+.hero-copy > * { position: relative; z-index: 1; }
 .hero-copy .label { margin-bottom: 28px; }
 .hero-copy .lead { margin-bottom: 30px; max-width: 38ch; font-size: 16px; }
 .hero h1 {
@@ -685,6 +712,53 @@ section { position: relative; padding: 130px 0; }
 }
 .hero-foot .meta { line-height: 1.4; }
 
+/* Quick Install — compact code pill in the hero */
+.hero-install {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px 10px 20px;
+  background: var(--code-bg);
+  color: var(--code-fg);
+  border-radius: var(--radius-md);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 38px;
+  max-width: fit-content;
+  border: 1px solid oklch(0.22 0.01 270 / 0.25);
+}
+.hero-install code {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hero-install .copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid oklch(1 0 0 / 0.15);
+  background: oklch(0.3 0.01 265 / 0.8);
+  color: oklch(0.85 0.005 95);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s ease;
+}
+.hero-install .copy-btn:hover {
+  background: oklch(0.35 0.01 265 / 0.95);
+}
+.hero-install .copy-btn.copied {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.hero-install .copy-btn svg { pointer-events: none; }
+
 .hero-art {
   position: relative;
   height: calc(100vh - 160px);
@@ -696,19 +770,10 @@ section { position: relative; padding: 130px 0; }
   align-items: center;
   justify-content: center;
 }
-.hero-logo {
-  width: 80%;
-  max-width: 500px;
-  height: auto;
-  animation: spin 20s linear infinite;
-  will-change: transform;
-}
+/* spin keyframe — used by logo background and any future rotating elements */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-logo { animation: none; }
 }
 .hero-art .corner {
   position: absolute;
@@ -872,7 +937,7 @@ section { position: relative; padding: 130px 0; }
   .nav-links { gap: 28px; }
 }
 @media (max-width: 1080px) {
-  .hero-grid, .capabilities-grid, .cta-grid {
+  .capabilities-grid, .cta-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
@@ -883,8 +948,9 @@ section { position: relative; padding: 130px 0; }
   .nav-links, .brand-meta, .nav-cta { display: none; }
   .cards { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
-  .hero-art { height: auto; aspect-ratio: 1/1; max-height: 400px; }
   .hero { min-height: auto; }
+  .hero-copy::before { right: -12%; width: 70%; opacity: 0.06; }
+  .hero-install { font-size: 12px; padding: 8px 12px 8px 16px; }
 }
 
 /* ========================================
@@ -1289,6 +1355,13 @@ section { position: relative; padding: 130px 0; }
 }
 :root[data-theme="dark"] .docs-article a:hover {
   text-decoration-color: oklch(0.62 0.18 280 / 0.8);
+}
+:root[data-theme="dark"] .hero-copy::before {
+  opacity: 0.05;
+}
+:root[data-theme="dark"] .hero-install {
+  background: oklch(0.22 0.02 270);
+  border-color: oklch(0.92 0.005 95 / 0.12);
 }
 
 /* Theme toggle button */
