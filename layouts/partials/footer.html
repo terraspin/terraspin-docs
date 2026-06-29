@@ -3,7 +3,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="{{ .Site.Home.RelPermalink }}" class="brand">
-          <img src="/images/logo-200.png" alt="{{ .Site.Title }} logo" class="brand-logo" width="36" height="36">
+          <img src="{{ "images/logo-200.png" | relURL }}" alt="{{ .Site.Title }} logo" class="brand-logo" width="36" height="36">
           <span>{{ .Site.Title }}</span>
         </a>
         <p style="margin-top:18px;">
@@ -13,8 +13,8 @@
       <div class="foot-col">
         <h5>Docs</h5>
         <ul>
-          <li><a href="/docs/">Documentation</a></li>
-          <li><a href="/docs/getting-started/">Getting Started</a></li>
+          <li><a href="{{ "docs/" | relURL }}">Documentation</a></li>
+          <li><a href="{{ "docs/getting-started/" | relURL }}">Getting Started</a></li>
           <li><a href="{{ .Site.Params.githubRepo }}/tree/main/docs" target="_blank" rel="noreferrer noopener">Source Docs</a></li>
         </ul>
       </div>

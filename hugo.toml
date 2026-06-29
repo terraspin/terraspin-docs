@@ -1,4 +1,4 @@
-baseURL = 'https://terraspin.sh/'
+baseURL = 'https://terraspin.github.io/terraspin-docs/'
 languageCode = 'en-us'
 title = 'Terraspin'
 enableRobotsTXT = true

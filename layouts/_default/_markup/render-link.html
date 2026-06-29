@@ -1,0 +1,7 @@
+{{ $url := .Destination }}
+{{ $isAbsolute := hasPrefix $url "/" }}
+{{ $isExternal := or (hasPrefix $url "http:") (hasPrefix $url "https:") (hasPrefix $url "//") (hasPrefix $url "mailto:") }}
+{{ if and $isAbsolute (not $isExternal) }}
+  {{ $url = strings.TrimPrefix "/" $url | relURL }}
+{{ end }}
+<a href="{{ $url | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

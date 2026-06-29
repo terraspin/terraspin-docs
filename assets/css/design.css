@@ -641,7 +641,7 @@ section { position: relative; padding: 130px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/images/logo.webp') no-repeat center center/contain;
+  background: url('../images/logo.webp') no-repeat center center/contain;
   opacity: 0.04;
   pointer-events: none;
   user-select: none;

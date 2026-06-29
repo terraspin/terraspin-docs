@@ -1,5 +1,5 @@
 <nav class="docs-breadcrumbs" aria-label="Breadcrumb">
-  <a href="/">Home</a>
+  <a href="{{ "" | relURL }}">Home</a>
   {{ $ancestors := .Ancestors.Reverse }}
   {{ range $ancestors }}
     {{ if ne .RelPermalink "/" }}
