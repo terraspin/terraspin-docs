@@ -257,6 +257,7 @@ pre code { font-size: inherit; background: none; padding: 0; }
 
 /* ---------- Section Rule ---------- */
 .sec-rule {
+  width: 100%;
   border-top: 1px solid var(--line);
   padding-top: 18px;
   margin-bottom: 48px;
@@ -616,8 +617,8 @@ section { position: relative; padding: 130px 0; }
   align-items: stretch;
   border-bottom: 1px solid var(--line);
 }
-.hero > .container { flex: 0 0 auto; }
-.hero > .container.hero-grid { flex: 1 1 auto; position: relative; z-index: 1; }
+.hero > .container { flex: 0 0 auto; width: 100%; }
+.hero > .container.hero-grid { flex: 1 1 auto; position: relative; z-index: 1; width: 100%; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -704,15 +705,14 @@ section { position: relative; padding: 130px 0; }
 .hero-stats .stat-label b { display: block; font-weight: 700; color: var(--ink); font-size: 12px; }
 
 .hero-foot {
+  width: 100%;
   margin-top: auto;
   padding-top: 22px;
   border-top: 1px solid var(--line);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 24px;
-  flex-wrap: wrap;
-  text-align: center;
 }
 .hero-foot .meta { line-height: 1.4; }
 
@@ -760,9 +760,10 @@ section { position: relative; padding: 130px 0; }
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  transition: background 0.18s ease, width 0.22s ease;
+  transition: background 0.18s ease;
   overflow: hidden;
   white-space: nowrap;
+  opacity: 1;
 }
 .hero-install .copy-btn:hover {
   background: oklch(0.35 0.01 265 / 0.95);

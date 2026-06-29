@@ -1,167 +1,303 @@
 {{ define "main" }}
 <div class="shell">
-
-<section class="hero" id="top" data-od-id="hero">
-  <div class="container">
-    <div class="sec-rule">
-      <span class="roman">I.</span>
-      <span class="meta-grp">
-        <span>Hero</span>
-        <span class="dot-mark">•</span>
-        <span>Terraspin</span>
-      </span>
-      <span>001 / 003</span>
-    </div>
-  </div>
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="label" data-reveal>Infrastructure Automation</span>
-      <h1 class="display" data-reveal>Spin up <em>infrastructure</em> faster, with <em>confidence</em><span class="dot">.</span></h1>
-      <p class="lead" data-reveal>Terraspin is an open-source tool that lets you define, provision, and manage cloud resources across hundreds of providers using a declarative configuration language.</p>
-      <div class="hero-actions" data-reveal>
-        <a class="btn btn-primary" href="/docs/">
-          Get Started
-          <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
-        </a>
-        <a class="btn btn-ghost" href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener">
-          View on GitHub
-          <span class="arrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg></span>
-        </a>
-      </div>
-      <div class="hero-install" data-reveal>
-        <code>brew install terraspin/tap/terraspin</code>
-        <button class="copy-btn" aria-label="Copy install command" type="button">
-          <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-          <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
-          <span class="copy-label">Copied</span>
-        </button>
-      </div>
-      <div class="hero-stats" data-reveal>
-        <div class="stat">
-          <span class="ring solid">∞</span>
-          <span class="stat-label"><b>providers</b>supported</span>
-        </div>
-        <div class="stat">
-          <span class="ring">HCL</span>
-          <span class="stat-label"><b>language</b>declarative</span>
-        </div>
-        <div class="stat">
-          <span class="ring brand">OSS</span>
-          <span class="stat-label"><b>license</b>open source</span>
-        </div>
-      </div>
-      <div class="hero-foot" data-reveal>
-        <span class="meta">↳ &nbsp; Declarative · Idempotent · Multi-cloud</span>
-        <span class="coord">MIT Licensed</span>
+  <section class="hero" id="top" data-od-id="hero">
+    <div class="container">
+      <div class="sec-rule">
+        <span class="roman">I.</span>
+        <span class="meta-grp">
+          <span>Hero</span>
+          <span class="dot-mark">•</span>
+          <span>Terraspin</span>
+        </span>
+        <span>001 / 003</span>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="capabilities" id="capabilities" data-od-id="capabilities">
-  <div class="container">
-    <div class="sec-rule">
-      <span class="roman">II.</span>
-      <span class="meta-grp">
-        <span>Capabilities</span>
-        <span class="dot-mark">•</span>
-        <span>4 surfaces / 1 loop</span>
-      </span>
-      <span>002 / 003</span>
-    </div>
-    <div class="capabilities-grid">
-      <div class="capabilities-copy" data-reveal="left">
-        <span class="label">Why Terraspin</span>
-        <h2 class="display">Declare. Plan. <em>Apply.</em> Your infrastructure, <em>codified</em><span class="dot">.</span></h2>
-        <p class="lead">Write infrastructure as code, preview changes before applying, and automate the provisioning of cloud resources across any provider — all from a single workflow.</p>
-        <div class="cards">
-          <div class="card" data-reveal>
-            <div class="num">01<span class="tag">Declare</span></div>
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M5 8h14v8H5z"/><path d="M9 12h6M12 9v6"/>
-            </svg>
-            <h3>Infrastructure<br/>as Code</h3>
-            <p>Define resources declaratively. Terraspin computes the dependency graph, provisions in parallel.</p>
-          </div>
-          <div class="card" data-reveal>
-            <div class="num">02<span class="tag">Plan</span></div>
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="9" cy="9" r="5"/><path d="M14 14l5 5"/>
-            </svg>
-            <h3>Preview<br/>Before Apply</h3>
-            <p>See exactly what will change. No surprises. Dry-run every modification before touching live infrastructure.</p>
-          </div>
-          <div class="card" data-reveal>
-            <div class="num">03<span class="tag">Apply</span></div>
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3.5" y="3.5" width="8" height="8"/><rect x="12.5" y="3.5" width="8" height="8"/>
-              <rect x="3.5" y="12.5" width="8" height="8"/><rect x="12.5" y="12.5" width="8" height="8"/>
-            </svg>
-            <h3>Multi-Cloud<br/>by Design</h3>
-            <p>One workflow. AWS, GCP, Azure, and hundreds more. Same syntax, same tool, same confidence.</p>
-          </div>
-          <div class="card" data-reveal>
-            <div class="num">04<span class="tag">Manage</span></div>
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="8" cy="12" r="4.5"/><circle cx="16" cy="12" r="4.5"/>
-            </svg>
-            <h3>State<br/>Management</h3>
-            <p>Track what exists. Drift detection, remote state backends, and locking so teams never step on each other.</p>
-          </div>
-        </div>
-      </div>
-      <div class="hero-art" data-reveal="right" style="height:auto;min-height:400px;display:flex;align-items:center;justify-content:center;">
-        <span class="corner tl"></span>
-        <span class="corner tr"></span>
-        <span class="corner bl"></span>
-        <span class="corner br"></span>
-        <img src="/images/logo.webp" alt="" style="width:min(70%,400px);height:auto;opacity:0.85;">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta" id="contact" data-od-id="cta">
-  <div class="container">
-    <div class="sec-rule">
-      <span class="roman">III.</span>
-      <span class="meta-grp">
-        <span>Get Started</span>
-        <span class="dot-mark">•</span>
-        <span>Open Source · MIT</span>
-      </span>
-      <span>003 / 003</span>
-    </div>
-    <div class="cta-grid">
-      <div data-reveal>
-        <span class="label">Start today</span>
-        <h2 class="display">Your infrastructure, <em>declared</em>. Your team, <em>unblocked</em><span class="dot">.</span></h2>
-        <p class="lead">Read the docs, clone the repo, or dive straight into the quickstart. Terraspin is free, open source, and ready for production.</p>
-        <div class="cta-actions">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="label" data-reveal>Infrastructure Automation</span>
+        <h1 class="display" data-reveal>
+          Spin up <em>infrastructure</em> faster, with <em>confidence</em
+          ><span class="dot">.</span>
+        </h1>
+        <p class="lead" data-reveal>
+          Terraspin is an open-source tool that lets you define, provision, and
+          manage cloud resources across hundreds of providers using a
+          declarative configuration language.
+        </p>
+        <div class="hero-actions" data-reveal>
           <a class="btn btn-primary" href="/docs/">
-            Read the Docs
-            <span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+            Get Started
+            <span class="arrow"
+              ><svg viewBox="0 0 24 24">
+                <path d="M5 19L19 5M19 5H8M19 5v11" /></svg
+            ></span>
           </a>
-          <a class="email-pill" href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener">
-            GitHub
-            <span class="arrow-circle">→</span>
+          <a
+            class="btn btn-ghost"
+            href="{{ .Site.Params.githubRepo }}"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            View on GitHub
+            <span class="arrow"
+              ><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 12h6M12 9v6" /></svg
+            ></span>
           </a>
         </div>
-        <div class="cta-foot">
-          <span class="stamp">● Live</span>
-          <span>Open Source · MIT</span>
+        <div class="hero-install" data-reveal>
+          <code>brew install terraspin/tap/terraspin</code>
+          <button
+            class="copy-btn"
+            aria-label="Copy install command"
+            type="button"
+          >
+            <svg
+              class="copy-icon"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="8" y="8" width="13" height="13" rx="2" />
+              <path
+                d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"
+              />
+            </svg>
+            <svg
+              class="check-icon"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="copy-label">Copied</span>
+          </button>
         </div>
-      </div>
-      <div class="hero-art" data-reveal="right" style="height:auto;min-height:300px;display:flex;align-items:center;justify-content:center;">
-        <span class="corner tl"></span>
-        <span class="corner tr"></span>
-        <span class="corner bl"></span>
-        <span class="corner br"></span>
-        <img src="/images/logo.webp" alt="" style="width:min(60%,300px);height:auto;opacity:0.85;">
+        <div class="hero-stats" data-reveal>
+          <div class="stat">
+            <span class="ring solid">∞</span>
+            <span class="stat-label"><b>providers</b>supported</span>
+          </div>
+          <div class="stat">
+            <span class="ring">HCL</span>
+            <span class="stat-label"><b>language</b>declarative</span>
+          </div>
+          <div class="stat">
+            <span class="ring brand">OSS</span>
+            <span class="stat-label"><b>license</b>open source</span>
+          </div>
+        </div>
+        <div class="hero-foot" data-reveal>
+          <span class="meta"
+            >↳ &nbsp; Declarative · Idempotent · Multi-cloud</span
+          >
+          <span class="coord">MIT Licensed</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="capabilities" id="capabilities" data-od-id="capabilities">
+    <div class="container">
+      <div class="sec-rule">
+        <span class="roman">II.</span>
+        <span class="meta-grp">
+          <span>Capabilities</span>
+          <span class="dot-mark">•</span>
+          <span>4 surfaces / 1 loop</span>
+        </span>
+        <span>002 / 003</span>
+      </div>
+      <div class="capabilities-grid">
+        <div class="capabilities-copy" data-reveal="left">
+          <span class="label">Why Terraspin</span>
+          <h2 class="display">
+            Declare. Plan. <em>Apply.</em> Your infrastructure, <em>codified</em
+            ><span class="dot">.</span>
+          </h2>
+          <p class="lead">
+            Write infrastructure as code, preview changes before applying, and
+            automate the provisioning of cloud resources across any provider —
+            all from a single workflow.
+          </p>
+          <div class="cards">
+            <div class="card" data-reveal>
+              <div class="num">01<span class="tag">Declare</span></div>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M5 8h14v8H5z" />
+                <path d="M9 12h6M12 9v6" />
+              </svg>
+              <h3>Infrastructure<br />as Code</h3>
+              <p>
+                Define resources declaratively. Terraspin computes the
+                dependency graph, provisions in parallel.
+              </p>
+            </div>
+            <div class="card" data-reveal>
+              <div class="num">02<span class="tag">Plan</span></div>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="9" cy="9" r="5" />
+                <path d="M14 14l5 5" />
+              </svg>
+              <h3>Preview<br />Before Apply</h3>
+              <p>
+                See exactly what will change. No surprises. Dry-run every
+                modification before touching live infrastructure.
+              </p>
+            </div>
+            <div class="card" data-reveal>
+              <div class="num">03<span class="tag">Apply</span></div>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="3.5" y="3.5" width="8" height="8" />
+                <rect x="12.5" y="3.5" width="8" height="8" />
+                <rect x="3.5" y="12.5" width="8" height="8" />
+                <rect x="12.5" y="12.5" width="8" height="8" />
+              </svg>
+              <h3>Multi-Cloud<br />by Design</h3>
+              <p>
+                One workflow. AWS, GCP, Azure, and hundreds more. Same syntax,
+                same tool, same confidence.
+              </p>
+            </div>
+            <div class="card" data-reveal>
+              <div class="num">04<span class="tag">Manage</span></div>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="8" cy="12" r="4.5" />
+                <circle cx="16" cy="12" r="4.5" />
+              </svg>
+              <h3>State<br />Management</h3>
+              <p>
+                Track what exists. Drift detection, remote state backends, and
+                locking so teams never step on each other.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hero-art"
+          data-reveal="right"
+          style="
+            height: auto;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+          <img
+            src="/images/logo.webp"
+            alt=""
+            style="width: min(70%, 400px); height: auto; opacity: 0.85"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact" data-od-id="cta">
+    <div class="container">
+      <div class="sec-rule">
+        <span class="roman">III.</span>
+        <span class="meta-grp">
+          <span>Get Started</span>
+          <span class="dot-mark">•</span>
+          <span>Open Source · MIT</span>
+        </span>
+        <span>003 / 003</span>
+      </div>
+      <div class="cta-grid">
+        <div data-reveal>
+          <span class="label">Start today</span>
+          <h2 class="display">
+            Your infrastructure, <em>declared</em>. Your team, <em>unblocked</em
+            ><span class="dot">.</span>
+          </h2>
+          <p class="lead">
+            Read the docs, clone the repo, or dive straight into the quickstart.
+            Terraspin is free, open source, and ready for production.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/docs/">
+              Read the Docs
+              <span class="arrow"
+                ><svg viewBox="0 0 24 24">
+                  <path d="M5 19L19 5M19 5H8M19 5v11" /></svg
+              ></span>
+            </a>
+            <a
+              class="email-pill"
+              href="{{ .Site.Params.githubRepo }}"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              GitHub
+              <span class="arrow-circle">→</span>
+            </a>
+          </div>
+          <div class="cta-foot">
+            <span class="stamp">● Live</span>
+            <span>Open Source · MIT</span>
+          </div>
+        </div>
+        <div
+          class="hero-art"
+          data-reveal="right"
+          style="
+            height: auto;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+          <img
+            src="/images/logo.webp"
+            alt=""
+            style="width: min(60%, 300px); height: auto; opacity: 0.85"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 {{ end }}
