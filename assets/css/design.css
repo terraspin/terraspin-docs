@@ -330,7 +330,7 @@ section { position: relative; padding: 130px 0; }
 @media (max-width: 560px) {
   .container { padding: 0 16px; }
   section { padding: 60px 0; }
-  .hero-copy::before { right: -20%; width: 90%; opacity: 0.05; }
+  .hero::after { right: -20%; width: 70%; opacity: 0.04; }
   .hero-install { font-size: 11px; padding: 8px 10px 8px 14px; }
   .hero-install code { overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
 }
@@ -632,30 +632,28 @@ section { position: relative; padding: 130px 0; }
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  z-index: 2;
 }
-/* Logo as decorative background behind hero copy */
-.hero-copy::before {
+/* Logo as decorative brand accent — outside reading area */
+.hero::after {
   content: '';
   position: absolute;
-  right: -8%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 55%;
-  height: 90%;
-  background: url('/images/logo.webp') no-repeat center/contain;
-  opacity: 0.07;
+  right: -6%;
+  top: 10%;
+  width: 45%;
+  max-width: 560px;
+  height: 80%;
+  background: url('/images/logo.webp') no-repeat right center/contain;
+  opacity: 0.06;
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  animation: spin 28s linear infinite;
+  animation: spin 32s linear infinite;
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-copy::before { animation: none; }
+  .hero::after { animation: none; }
 }
-/* Ensure hero copy children sit above the logo background */
-.hero-copy > * { position: relative; z-index: 1; }
 .hero-copy .label { margin-bottom: 28px; }
 .hero-copy .lead { margin-bottom: 30px; max-width: 38ch; font-size: 16px; }
 .hero h1 {
@@ -949,7 +947,7 @@ section { position: relative; padding: 130px 0; }
   .cards { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
-  .hero-copy::before { right: -12%; width: 70%; opacity: 0.06; }
+  .hero::after { right: -14%; width: 55%; opacity: 0.05; }
   .hero-install { font-size: 12px; padding: 8px 12px 8px 16px; }
 }
 
@@ -1356,8 +1354,8 @@ section { position: relative; padding: 130px 0; }
 :root[data-theme="dark"] .docs-article a:hover {
   text-decoration-color: oklch(0.62 0.18 280 / 0.8);
 }
-:root[data-theme="dark"] .hero-copy::before {
-  opacity: 0.05;
+:root[data-theme="dark"] .hero::after {
+  opacity: 0.04;
 }
 :root[data-theme="dark"] .hero-install {
   background: oklch(0.22 0.02 270);
