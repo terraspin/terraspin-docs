@@ -745,21 +745,22 @@ section { position: relative; padding: 130px 0; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: auto;
-  min-width: 28px;
-  height: 28px;
+  width: 52px;
+  max-width: 52px;
+  min-width: 52px;
+  height: 26px;
   padding: 0 8px;
-  border-radius: 6px;
+  border-radius: 5px;
   border: 1px solid oklch(1 0 0 / 0.15);
   background: oklch(0.3 0.01 265 / 0.8);
   color: oklch(0.85 0.005 95);
   cursor: pointer;
   flex-shrink: 0;
-  font-family: var(--body);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition: background 0.18s ease;
   overflow: hidden;
   white-space: nowrap;
@@ -775,15 +776,11 @@ section { position: relative; padding: 130px 0; }
 .hero-install .copy-btn.copied {
   background: var(--brand);
   border-color: var(--brand);
-  padding: 0 8px 0 10px;
 }
-.hero-install .copy-btn .copy-icon { display: block; }
-.hero-install .copy-btn .check-icon,
-.hero-install .copy-btn .copy-label { display: none; }
-.hero-install .copy-btn.copied .copy-icon { display: none; }
-.hero-install .copy-btn.copied .check-icon { display: block; }
-.hero-install .copy-btn.copied .copy-label { display: inline; }
-.hero-install .copy-btn svg { pointer-events: none; flex-shrink: 0; }
+.hero-install .copy-btn .copy-text { display: inline; }
+.hero-install .copy-btn .copied-text { display: none; }
+.hero-install .copy-btn.copied .copy-text { display: none; }
+.hero-install .copy-btn.copied .copied-text { display: inline; }
 
 .hero-art {
   position: relative;
