@@ -4,9 +4,9 @@ The official documentation website for [Terraspin](https://github.com/terraspin/
 
 ## Repository responsibilities
 
-| Repository | Role |
-|---|---|
-| [terraspin/terraspin](https://github.com/terraspin/terraspin) | Source code &bull; CLI &bull; documentation **content** (`/docs`) |
+| Repository                                                              | Role                                                                             |
+| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [terraspin/terraspin](https://github.com/terraspin/terraspin)           | Source code &bull; CLI &bull; documentation **content** (`/docs`)                |
 | [terraspin/terraspin-docs](https://github.com/terraspin/terraspin-docs) | Hugo site &bull; theme &bull; layouts &bull; CSS &bull; assets &bull; deployment |
 
 This repository is **not** the source of truth for documentation content. All guides, command references, and product docs live in the main repository. This repository renders them.
@@ -70,4 +70,4 @@ The site is served at `https://terraspin.github.io/terraspin-docs/`.
 
 ## License
 
-This project follows the license of [Terraspin](https://github.com/terraspin/terraspin).
+This project follows the license of [LICENSE](LICENSE).
