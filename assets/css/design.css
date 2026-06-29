@@ -657,8 +657,10 @@ section { position: relative; padding: 130px 0; }
 .hero-copy .lead { margin-bottom: 30px; max-width: 42ch; font-size: 16px; }
 .hero h1 {
   font-size: clamp(44px, 5vw, 78px);
-  line-height: 1.0;
+  line-height: 1.05;
   margin-bottom: 28px;
+  text-wrap: balance;
+  max-width: 18ch;
 }
 .hero-actions {
   display: flex;
@@ -739,27 +741,48 @@ section { position: relative; padding: 130px 0; }
   text-overflow: ellipsis;
 }
 .hero-install .copy-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
+  gap: 6px;
+  width: auto;
+  min-width: 28px;
   height: 28px;
+  padding: 0 8px;
   border-radius: 6px;
   border: 1px solid oklch(1 0 0 / 0.15);
   background: oklch(0.3 0.01 265 / 0.8);
   color: oklch(0.85 0.005 95);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.18s ease;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.18s ease, width 0.22s ease;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .hero-install .copy-btn:hover {
   background: oklch(0.35 0.01 265 / 0.95);
 }
+.hero-install .copy-btn:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
 .hero-install .copy-btn.copied {
   background: var(--brand);
   border-color: var(--brand);
+  padding: 0 8px 0 10px;
 }
-.hero-install .copy-btn svg { pointer-events: none; }
+.hero-install .copy-btn .copy-icon { display: block; }
+.hero-install .copy-btn .check-icon,
+.hero-install .copy-btn .copy-label { display: none; }
+.hero-install .copy-btn.copied .copy-icon { display: none; }
+.hero-install .copy-btn.copied .check-icon { display: block; }
+.hero-install .copy-btn.copied .copy-label { display: inline; }
+.hero-install .copy-btn svg { pointer-events: none; flex-shrink: 0; }
 
 .hero-art {
   position: relative;
