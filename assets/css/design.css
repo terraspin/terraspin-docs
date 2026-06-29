@@ -330,7 +330,7 @@ section { position: relative; padding: 130px 0; }
 @media (max-width: 560px) {
   .container { padding: 0 16px; }
   section { padding: 60px 0; }
-  .hero::after { right: -20%; width: 70%; opacity: 0.04; }
+  .hero::after { opacity: 0.03; background-size: 90%; }
   .hero-install { font-size: 11px; padding: 8px 10px 8px 14px; }
   .hero-install code { overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
 }
@@ -617,7 +617,7 @@ section { position: relative; padding: 130px 0; }
   border-bottom: 1px solid var(--line);
 }
 .hero > .container { flex: 0 0 auto; }
-.hero > .container.hero-grid { flex: 1 1 auto; }
+.hero > .container.hero-grid { flex: 1 1 auto; position: relative; z-index: 1; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -625,53 +625,55 @@ section { position: relative; padding: 130px 0; }
   align-items: stretch;
   width: 100%;
   position: relative;
-  max-width: 960px;
 }
 .hero-copy {
   padding: 4vh 0 4vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   position: relative;
   z-index: 2;
 }
-/* Logo as decorative brand accent — outside reading area */
+/* Logo as decorative background — centered behind hero content, never obstructing text */
 .hero::after {
   content: '';
   position: absolute;
-  right: -6%;
-  top: 10%;
-  width: 45%;
-  max-width: 560px;
-  height: 80%;
-  background: url('/images/logo.webp') no-repeat right center/contain;
-  opacity: 0.06;
+  inset: 0;
+  background: url('/images/logo.webp') no-repeat center center/contain;
+  opacity: 0.04;
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  animation: spin 32s linear infinite;
+  animation: spin 36s linear infinite;
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
   .hero::after { animation: none; }
 }
 .hero-copy .label { margin-bottom: 28px; }
-.hero-copy .lead { margin-bottom: 30px; max-width: 38ch; font-size: 16px; }
+/* Remove the decorative line on centered labels since it disrupts visual balance */
+.hero-copy .label::before { display: none; }
+.hero-copy .lead { margin-bottom: 30px; max-width: 42ch; font-size: 16px; }
 .hero h1 {
   font-size: clamp(44px, 5vw, 78px);
   line-height: 1.0;
   margin-bottom: 28px;
 }
 .hero-actions {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 38px;
 }
 .hero-stats {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 22px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-bottom: 28px;
 }
 .hero-stats .stat { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; }
@@ -705,8 +707,10 @@ section { position: relative; padding: 130px 0; }
   border-top: 1px solid var(--line);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
+  flex-wrap: wrap;
+  text-align: center;
 }
 .hero-foot .meta { line-height: 1.4; }
 
@@ -947,7 +951,7 @@ section { position: relative; padding: 130px 0; }
   .cards { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
-  .hero::after { right: -14%; width: 55%; opacity: 0.05; }
+  .hero::after { opacity: 0.035; }
   .hero-install { font-size: 12px; padding: 8px 12px 8px 16px; }
 }
 
@@ -1355,7 +1359,7 @@ section { position: relative; padding: 130px 0; }
   text-decoration-color: oklch(0.62 0.18 280 / 0.8);
 }
 :root[data-theme="dark"] .hero::after {
-  opacity: 0.04;
+  opacity: 0.03;
 }
 :root[data-theme="dark"] .hero-install {
   background: oklch(0.22 0.02 270);
