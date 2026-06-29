@@ -716,20 +716,21 @@ section { position: relative; padding: 130px 0; }
 }
 .hero-foot .meta { line-height: 1.4; }
 
-/* Quick Install — compact code pill in the hero */
+/* Quick Install — single unified pill */
 .hero-install {
   display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 18px;
+  align-items: baseline;
+  gap: 18px;
+  padding: 11px 20px;
   background: var(--code-bg);
   color: var(--code-fg);
   border-radius: var(--radius-md);
   font-family: var(--mono);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1;
   margin-bottom: 38px;
   width: fit-content;
+  max-width: 100%;
   border: 1px solid oklch(0.22 0.01 270 / 0.25);
 }
 .hero-install code {
@@ -738,46 +739,8 @@ section { position: relative; padding: 130px 0; }
   color: inherit;
   line-height: inherit;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-.hero-install .copy-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 64px;
-  padding: 3px 10px;
-  border-radius: 5px;
-  border: 1px solid oklch(1 0 0 / 0.15);
-  background: oklch(0.3 0.01 265 / 0.8);
-  color: oklch(0.85 0.005 95);
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: var(--mono);
-  font-size: 11px;
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: background 0.18s ease;
-  white-space: nowrap;
-  opacity: 1;
-}
-.hero-install .copy-btn:hover {
-  background: oklch(0.35 0.01 265 / 0.95);
-}
-.hero-install .copy-btn:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
-}
-.hero-install .copy-btn.copied {
-  background: var(--brand);
-  border-color: var(--brand);
-}
-.hero-install .copy-btn .copy-text { display: inline; }
-.hero-install .copy-btn .copied-text { display: none; }
-.hero-install .copy-btn.copied .copy-text { display: none; }
-.hero-install .copy-btn.copied .copied-text { display: inline; }
+
 
 .hero-art {
   position: relative;
@@ -970,7 +933,7 @@ section { position: relative; padding: 130px 0; }
   .foot-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
   .hero::after { opacity: 0.035; }
-  .hero-install { font-size: 12px; padding: 8px 16px; }
+  .hero-install { font-size: 12px; padding: 9px 16px; }
 }
 
 /* ========================================
