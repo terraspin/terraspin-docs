@@ -13,6 +13,9 @@
     (resources.Get "css/typography.css")
     (resources.Get "css/animations.css")
     (resources.Get "css/utilities.css")
+    (resources.Get "css/components/button.css")
+    (resources.Get "css/components/header.css")
+    (resources.Get "css/components/footer.css")
     (resources.Get "css/design.css")
   }}
   {{ $css := $modular | resources.Concat "css/bundle.css" | minify | fingerprint }}
