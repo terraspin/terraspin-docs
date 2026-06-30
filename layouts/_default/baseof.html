@@ -19,7 +19,11 @@
     (resources.Get "css/components/hero.css")
     (resources.Get "css/components/cards.css")
     (resources.Get "css/components/navigation.css")
-    (resources.Get "css/design.css")
+    (resources.Get "css/components/sidebar.css")
+    (resources.Get "css/components/toc.css")
+    (resources.Get "css/components/search.css")
+    (resources.Get "css/components/code-block.css")
+    (resources.Get "css/pages/docs.css")
   }}
   {{ $css := $modular | resources.Concat "css/bundle.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

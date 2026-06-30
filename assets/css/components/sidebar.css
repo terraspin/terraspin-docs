@@ -1,0 +1,68 @@
+/* ========================================
+   DOCS SIDEBAR
+   ======================================== */
+
+.docs-sidebar {
+  padding: 32px 20px 80px 32px;
+  border-inline-end: 1px solid var(--line);
+  overflow-y: auto;
+  font-size: 14px;
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 140px);
+  background: var(--paper);
+}
+.sidebar-group {
+  margin-bottom: 28px;
+}
+.sidebar-group.has-active .sidebar-group-label {
+  color: var(--ink);
+}
+.sidebar-group-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  padding: 0 6px;
+}
+a.sidebar-group-label {
+  display: block;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.sidebar-group-label.active {
+  color: var(--brand);
+  font-weight: 700;
+}
+.sidebar-group a {
+  display: block;
+  color: var(--ink-mute);
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-weight: 400;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    font-weight var(--duration-normal) var(--ease-out);
+  position: relative;
+}
+.sidebar-group a:hover {
+  color: var(--ink);
+  background: var(--brand-bg);
+}
+.sidebar-group a.active {
+  color: #fff;
+  background: var(--brand);
+  font-weight: 600;
+  box-shadow: 0 2px 8px oklch(0.42 0.18 280 / 0.18);
+}
+
+@media (max-width: 880px) {
+  .docs-sidebar { display: none; }
+}
