@@ -10,6 +10,7 @@
   {{ $css := resources.Get "css/design.css" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ block "styles" . }}{{ end }}
+  {{ partial "theme-switch.html" . }}
 </head>
 <body>
   {{ partial "header.html" . }}
@@ -17,6 +18,6 @@
   {{ partial "footer.html" . }}
   {{ partial "scroll-reveal.html" . }}
   {{ partial "copy-code.html" . }}
-  {{ partial "theme-switch.html" . }}
+  {{ partial "stars-fetch.html" . }}
 </body>
 </html>

@@ -1,0 +1,38 @@
+<script>
+  (function() {
+    var starsCache = null;
+    var REPO = 'terraspin/terraspin';
+
+    function format(n) {
+      if (n == null) return '';
+      if (n >= 10000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+      if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+      return String(n);
+    }
+
+    var el = document.querySelector('[data-stars]');
+    if (!el) return;
+
+    function setCount(n) {
+      var count = format(n);
+      el.innerHTML = count ? '\u2605 Star <span>' + count + '</span>' : '\u2605 Star';
+    }
+
+    if (starsCache !== null) { setCount(starsCache); return; }
+
+    fetch('https://api.github.com/repos/' + REPO, { method: 'GET' })
+      .then(function(r) {
+        if (!r.ok) throw new Error('status ' + r.status);
+        return r.json();
+      })
+      .then(function(data) {
+        if (data && typeof data.stargazers_count === 'number') {
+          starsCache = data.stargazers_count;
+          setCount(starsCache);
+        }
+      })
+      .catch(function() {
+        /* ponytail: silent fail — button still says "Star" without count */
+      });
+  })();
+</script>
