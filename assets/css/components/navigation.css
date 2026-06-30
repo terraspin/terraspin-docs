@@ -1,0 +1,165 @@
+/* ========================================
+   MOBILE NAV + THEME TOGGLE
+   ======================================== */
+
+/* ---------- Toggle — 6-dot geometric glyph ---------- */
+.mobile-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 7px;
+  transition: background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+.mobile-toggle:hover {
+  background: var(--surface);
+  border-color: var(--brand-soft);
+}
+.dot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+.dot-grid .d {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+@media (max-width: 880px) {
+  .mobile-toggle { display: inline-flex; }
+}
+
+/* ---------- Overlay backdrop ---------- */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: oklch(0.15 0.01 270 / 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+.mobile-menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- Menu panel (slides up from bottom) ---------- */
+.mobile-menu {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 61;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 32px 24px calc(32px + env(safe-area-inset-bottom, 0px));
+  transform: translateY(100%);
+  transition: transform var(--duration-normal) var(--ease-out);
+  max-height: 80vh;
+  overflow-y: auto;
+  will-change: transform;
+}
+.mobile-menu.is-open {
+  transform: translateY(0);
+}
+.mobile-menu .mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.mobile-nav-links a {
+  display: block;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  background: var(--surface);
+}
+.mobile-nav-links a .num {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-inline-start: 6px;
+}
+.mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile-menu-actions .nav-cta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+/* Drag handle hint */
+.mobile-menu-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  margin: 0 auto 20px;
+}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.18s ease, border-color 0.18s ease;
+  flex-shrink: 0;
+  position: relative;
+}
+.theme-toggle:hover {
+  background: var(--surface);
+  border-color: var(--brand-soft);
+}
+
+/* Icon cross-fade */
+.theme-icon-light,
+.theme-icon-dark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.theme-icon-light { opacity: 0; }
+.theme-icon-dark  { opacity: 1; }
+:root[data-theme="dark"] .theme-icon-light { opacity: 1; }
+:root[data-theme="dark"] .theme-icon-dark  { opacity: 0; }
