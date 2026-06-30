@@ -366,7 +366,7 @@ section { position: relative; padding: 130px 0; }
     display: block;
     text-align: center;
   }
-  .foot-mega .word { font-size: clamp(32px, 8vw, 70px); margin-top: 20px; padding-right: 16px; }
+  .foot-mega .word { font-size: clamp(32px, 8vw, 70px); margin-top: 20px; text-align: center; }
   .site-footer { padding: 40px 0 24px; }
   .docs-article table { font-size: 12px; }
   .docs-article th, .docs-article td { padding: 8px 10px; }
@@ -1045,7 +1045,7 @@ section { position: relative; padding: 130px 0; }
   .hero { min-height: auto; }
   .hero::after { opacity: 0.035; }
   .hero-install { font-size: 12px; padding: 9px 16px; }
-  .foot-mega .word { font-size: clamp(48px, 10vw, 120px); }
+  .foot-mega .word { font-size: clamp(48px, 10vw, 120px); text-align: center; }
   .docs-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
 
