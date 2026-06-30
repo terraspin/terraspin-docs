@@ -2,8 +2,9 @@
   {{ $currentPage := . }}
   {{ $docs := .Site.GetPage "/docs" }}
   {{ range $docs.Sections.ByWeight }}
-    <div class="sidebar-group">
-      <a href="{{ .RelPermalink }}" class="sidebar-group-label {{ if eq $currentPage.RelPermalink .RelPermalink }}active{{ end }}">{{ .Title }}</a>
+    {{ $isActiveGroup := or (eq $currentPage.RelPermalink .RelPermalink) (in $currentPage.RelPermalink .RelPermalink) }}
+    <div class="sidebar-group{{ if $isActiveGroup }} has-active{{ end }}">
+      <a href="{{ .RelPermalink }}" class="sidebar-group-label{{ if eq $currentPage.RelPermalink .RelPermalink }} active{{ end }}">{{ .Title }}</a>
       {{ range .Pages.ByWeight }}
         <a href="{{ .RelPermalink }}" class="{{ if eq $currentPage.RelPermalink .RelPermalink }}active{{ end }}">
           {{ .Title }}
