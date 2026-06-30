@@ -65,7 +65,7 @@
   --space-4xl: 96px;
 
   /* Layout */
-  --content-max: 720px;
+  --content-max: 780px;
   --sidebar-width: 260px;
   --toc-width: 220px;
   --container-max: 1360px;
@@ -1109,13 +1109,19 @@ a.sidebar-group-label {
   display: block;
   color: var(--ink-soft);
   text-decoration: none;
-  padding: 5px 6px 5px 10px;
+  padding: 6px 8px 6px 10px;
+  margin-inline-start: 2px;
   border-radius: var(--radius-sm);
   font-size: 13.5px;
+  font-weight: 400;
   border-inline-start: 2px solid transparent;
-  transition: color var(--duration-fast) var(--ease-out),
+  transition:
+    color var(--duration-fast) var(--ease-out),
     background var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out),
+    font-weight var(--duration-fast) var(--ease-out),
+    padding-inline-start var(--duration-fast) var(--ease-out);
+  position: relative;
 }
 .sidebar-group a:hover {
   color: var(--ink);
@@ -1124,8 +1130,10 @@ a.sidebar-group-label {
 .sidebar-group a.active {
   color: var(--brand);
   background: var(--brand-bg);
-  border-inline-start-color: var(--brand);
-  font-weight: 500;
+  border-inline-start: 3px solid var(--brand);
+  font-weight: 550;
+  padding-inline-start: 14px;
+  margin-inline-start: 0;
 }
 
 /* Article body */
