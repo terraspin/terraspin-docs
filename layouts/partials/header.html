@@ -35,6 +35,70 @@
       <a class="nav-cta ghost" href="{{ .Site.Params.githubRepo }}/releases" target="_blank" rel="noreferrer noopener">Download</a>
       <a class="nav-cta" href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener" data-stars>Star</a>
       <span class="status-dot" aria-hidden="true"></span>
+      <button class="mobile-toggle" aria-label="Menu" aria-expanded="false" id="mobile-toggle">
+        <span class="dot-grid">
+          <span class="d"></span><span class="d"></span>
+          <span class="d"></span><span class="d"></span>
+        </span>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-handle"></div>
+  <ul class="mobile-nav-links">
+    <li><a href="{{ "docs/" | relURL }}">Docs</a></li>
+    <li><a href="{{ "search/" | relURL }}">Search</a></li>
+    <li><a href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener">GitHub <span class="num">↗</span></a></li>
+  </ul>
+  <div class="mobile-menu-actions">
+    <a class="nav-cta ghost" href="{{ .Site.Params.githubRepo }}/releases" target="_blank" rel="noreferrer noopener">Download</a>
+    <a class="nav-cta" href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noreferrer noopener" data-stars>Star</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var toggle = document.getElementById('mobile-toggle');
+  var menu = document.getElementById('mobile-menu');
+  var overlay = document.getElementById('mobile-overlay');
+  var body = document.body;
+  var isOpen = false;
+
+  function open() {
+    isOpen = true;
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.classList.add('is-open');
+    overlay.classList.add('is-open');
+    body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    isOpen = false;
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', function() {
+    if (isOpen) close(); else open();
+  });
+
+  overlay.addEventListener('click', close);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen) {
+      close();
+      toggle.focus();
+    }
+  });
+
+  menu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', close);
+  });
+})();
+</script>
