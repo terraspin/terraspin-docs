@@ -1,0 +1,92 @@
+/* ---------- Headings ---------- */
+h1, h2, h3, h4, h5, h6 { font-family: var(--sans); font-weight: 800; letter-spacing: -0.022em; color: var(--ink); }
+h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.05; }
+h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.1; }
+h3 { font-size: 22px; line-height: 1.2; }
+h4 { font-size: 18px; line-height: 1.25; }
+
+/* ---------- Body Text ---------- */
+p, li { color: var(--ink-soft); }
+a { color: var(--brand); text-decoration: none; transition: color var(--duration-fast) var(--ease-out); }
+a:hover { color: var(--brand-soft); }
+
+/* ---------- Code ---------- */
+code { font-family: var(--mono); font-size: 0.85em; }
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.55;
+  border: 1px solid oklch(0.22 0.01 270 / 0.2);
+}
+pre code { font-size: inherit; background: none; padding: 0; }
+
+/* ---------- Typography Utility Classes ---------- */
+.display {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+  line-height: 1.0;
+}
+.display em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+}
+.display .dot { color: var(--coral); }
+
+.label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.label::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--brand);
+  display: inline-block;
+}
+
+.lead {
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.meta {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.coord {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+.code-inline {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--code-inline-bg);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--ink);
+}

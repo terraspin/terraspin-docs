@@ -1,0 +1,56 @@
+/* ---------- Layout ---------- */
+.container {
+  max-width: var(--container-max);
+  padding: 0 var(--space-3xl);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---------- Section ---------- */
+section { position: relative; padding: 130px 0; }
+.section-header { margin-bottom: 70px; }
+.section-header .label { margin-bottom: 32px; }
+.section-header h2 { max-width: 22ch; }
+.section-header .lead { margin-top: 22px; }
+
+/* ---------- Section Rule ---------- */
+.sec-rule {
+  width: 100%;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.sec-rule .roman {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--coral);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+.sec-rule .meta-grp { display: inline-flex; gap: 26px; }
+.sec-rule .dot-mark { color: var(--coral); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1280px) {
+  .container { padding: 0 44px; }
+}
+@media (max-width: 1080px) {
+  .container { padding: 0 32px; }
+}
+@media (max-width: 880px) {
+  .container { padding: 0 24px; }
+  section { padding: 80px 0; }
+}
+@media (max-width: 560px) {
+  .container { padding: 0 16px; }
+  section { padding: 60px 0; overflow: hidden; }
+}

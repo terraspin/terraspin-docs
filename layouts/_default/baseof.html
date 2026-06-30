@@ -7,7 +7,15 @@
   <meta name="description" content="{{ block "description" . }}{{ .Site.Params.description }}{{ end }}">
   {{ partial "head/seo.html" . }}
   <link rel="icon" type="image/png" sizes="64x64" href="{{ "favicon.png" | relURL }}">
-  {{ $css := resources.Get "css/design.css" | toCSS | minify | fingerprint }}
+  {{ $modular := slice
+    (resources.Get "css/variables.css")
+    (resources.Get "css/reset.css")
+    (resources.Get "css/typography.css")
+    (resources.Get "css/animations.css")
+    (resources.Get "css/utilities.css")
+    (resources.Get "css/design.css")
+  }}
+  {{ $css := $modular | resources.Concat "css/bundle.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ block "styles" . }}{{ end }}
   {{ partial "theme-switch.html" . }}
