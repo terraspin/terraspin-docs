@@ -1142,6 +1142,7 @@ a.sidebar-group-label {
 /* Article body */
 .docs-article {
   padding: 48px 40px 96px;
+  max-width: 820px;
   min-width: 0;
 }
 .docs-article h1 {
