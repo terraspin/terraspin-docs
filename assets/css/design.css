@@ -367,6 +367,7 @@ section { position: relative; padding: 130px 0; }
     text-align: center;
   }
   .foot-mega .word { font-size: clamp(32px, 8vw, 70px); margin-top: 20px; text-align: center; }
+  .foot-mega { display: flex; justify-content: center; }
   .foot-mega .word[data-reveal] {
     opacity: 1 !important;
     translate: 0 0 !important;
@@ -1052,6 +1053,7 @@ section { position: relative; padding: 130px 0; }
   .hero::after { opacity: 0.035; }
   .hero-install { font-size: 12px; padding: 9px 16px; }
   .foot-mega .word { font-size: clamp(48px, 10vw, 120px); text-align: center; }
+  .foot-mega { display: flex; justify-content: center; }
   .foot-mega .word[data-reveal] {
     opacity: 1 !important;
     translate: 0 0 !important;
@@ -1089,9 +1091,7 @@ section { position: relative; padding: 130px 0; }
 .sidebar-group {
   margin-bottom: 28px;
 }
-.sidebar-group-label,
-a.sidebar-group-label {
-  display: block;
+.sidebar-group-label {
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 600;
@@ -1100,11 +1100,10 @@ a.sidebar-group-label {
   letter-spacing: 0.08em;
   margin-bottom: 8px;
   padding: 0 6px;
-  text-decoration: none;
 }
-a.sidebar-group-label:hover { color: var(--ink); }
-a.sidebar-group-label.active {
-  color: var(--brand);
+a.sidebar-group-label {
+  display: block;
+  text-decoration: none;
 }
 .sidebar-group a {
   display: block;
