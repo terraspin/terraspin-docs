@@ -23,6 +23,7 @@
     (resources.Get "css/components/toc.css")
     (resources.Get "css/components/search.css")
     (resources.Get "css/components/code-block.css")
+    (resources.Get "css/components/docs-mobile.css")
     (resources.Get "css/pages/docs.css")
   }}
   {{ $css := $modular | resources.Concat "css/bundle.css" | minify | fingerprint }}

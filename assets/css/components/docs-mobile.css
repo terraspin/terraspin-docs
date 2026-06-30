@@ -1,0 +1,175 @@
+/* ========================================
+   MOBILE DOCS TOOLBAR + BOTTOM SHEETS
+   ======================================== */
+
+/* ---------- Toolbar — fixed bottom bar ---------- */
+.docs-mobile-toolbar {
+  display: none;
+}
+
+@media (max-width: 880px) {
+  .docs-mobile-toolbar {
+    display: flex;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 55;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 4px;
+    justify-content: space-around;
+    transform: translateY(0);
+    transition: transform var(--duration-normal) var(--ease-out);
+    will-change: transform;
+  }
+
+  .docs-mobile-toolbar.is-hidden {
+    transform: translateY(120%);
+  }
+
+  .docs-mobile-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 10px;
+    min-width: 56px;
+    min-height: var(--space-3xl); /* 64px touch target */
+    border: none;
+    background: transparent;
+    color: var(--ink-mute);
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: color var(--duration-fast) var(--ease-out),
+                background var(--duration-fast) var(--ease-out);
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+  }
+
+  .docs-mobile-btn:hover,
+  .docs-mobile-btn:active {
+    color: var(--ink);
+    background: var(--surface);
+  }
+
+  .docs-mobile-btn svg {
+    flex-shrink: 0;
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .docs-mobile-btn:active svg {
+    transform: scale(0.92);
+  }
+
+  /* Next-page button — brand accent */
+  .docs-mobile-next {
+    color: var(--brand);
+  }
+  .docs-mobile-next:hover,
+  .docs-mobile-next:active {
+    color: var(--brand-soft);
+    background: var(--brand-bg);
+  }
+}
+
+/* ---------- Bottom sheets (reuse .mobile-menu pattern) ---------- */
+@media (max-width: 880px) {
+  .docs-nav-sheet,
+  .docs-toc-sheet {
+    z-index: 61;
+  }
+
+  .sheet-title {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding: 0 4px;
+  }
+
+  /* Sidebar cloned into sheet */
+  .docs-sidebar-mobile {
+    padding: 0 4px;
+  }
+
+  .docs-sidebar-mobile .sidebar-group {
+    margin-bottom: 22px;
+  }
+
+  .docs-sidebar-mobile .sidebar-group-label {
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    margin-bottom: 6px;
+  }
+
+  .docs-sidebar-mobile .sidebar-group a {
+    padding: 12px 16px;
+    font-size: 15px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* TOC cloned into sheet */
+  .docs-toc-mobile {
+    padding: 0 4px;
+  }
+
+  .docs-toc-mobile ul {
+    list-style: none;
+  }
+
+  .docs-toc-mobile li {
+    margin-bottom: 2px;
+  }
+
+  .docs-toc-mobile li.toc-h3 {
+    padding-inline-start: 16px;
+  }
+
+  .docs-toc-mobile a {
+    display: block;
+    padding: 10px 12px;
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--ink-mute);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    border-inline-start: 3px solid transparent;
+    padding-inline-start: 10px;
+    transition: color var(--duration-fast) var(--ease-out),
+                background var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .docs-toc-mobile a:hover,
+  .docs-toc-mobile a:active {
+    color: var(--ink);
+    background: var(--surface);
+  }
+
+  .docs-toc-mobile a.active {
+    color: var(--brand);
+    border-inline-start-color: var(--brand);
+    font-weight: 500;
+  }
+}
+
+/* ---------- Docs article padding for toolbar clearance ---------- */
+@media (max-width: 880px) {
+  .docs-article {
+    padding-bottom: calc(64px + 80px + env(safe-area-inset-bottom, 0px));
+  }
+}
