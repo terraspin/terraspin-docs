@@ -334,6 +334,22 @@ section { position: relative; padding: 130px 0; }
   .hero::after { opacity: 0.03; background-size: 90%; }
   .hero-install { font-size: 11px; padding: 8px 14px; }
   .hero-install code { overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
+  .foot-grid {
+    justify-items: center;
+    gap: 36px;
+  }
+  .foot-brand,
+  .foot-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .foot-brand .brand { justify-content: center; margin-bottom: 16px; }
+  .foot-brand p { font-size: 14px; max-width: 32ch; }
+  .foot-col h5 { text-align: center; }
+  .foot-col ul { display: flex; flex-direction: column; align-items: center; }
+  .foot-col a { padding: 6px 0; display: block; }
   .foot-bottom {
     flex-direction: column;
     align-items: center;
@@ -352,11 +368,6 @@ section { position: relative; padding: 130px 0; }
   }
   .foot-mega .word { font-size: clamp(32px, 8vw, 70px); margin-top: 20px; padding-right: 16px; }
   .site-footer { padding: 40px 0 24px; }
-  .foot-brand p { font-size: 14px; }
-  .foot-brand { text-align: center; align-items: center; }
-  .foot-col { text-align: center; }
-  .foot-col ul { display: flex; flex-direction: column; align-items: center; }
-  .foot-col a { padding: 6px 0; display: block; }
   .docs-article table { font-size: 12px; }
   .docs-article th, .docs-article td { padding: 8px 10px; }
 }
@@ -607,8 +618,7 @@ section { position: relative; padding: 130px 0; }
   padding-top: 12px;
   padding-bottom: 12px;
   border-top: 1px solid var(--line);
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
 }
 .foot-mega .word {
   font-family: var(--sans);
@@ -1010,7 +1020,21 @@ section { position: relative; padding: 130px 0; }
   .cta-art { width: 120px; height: 120px; }
   .capabilities-watermark { width: 180px; opacity: 0.04; transform: translateY(-50%) translateX(25%); }
   .logo-spin { width: 76px; }
-  .foot-grid { grid-template-columns: 1fr; gap: 32px; }
+  .foot-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    justify-items: center;
+  }
+  .foot-brand,
+  .foot-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .foot-brand .brand { justify-content: center; }
+  .foot-brand p { max-width: 42ch; }
+  .foot-col ul { display: flex; flex-direction: column; align-items: center; }
   .foot-bottom {
     flex-direction: column;
     align-items: center;
